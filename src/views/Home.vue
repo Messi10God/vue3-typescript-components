@@ -1,52 +1,45 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" @add="add" />
-    <List :list="list" @checkItem="checkItem"></List>
-    <Footer :list="list" @checkAll="checkAll"></Footer>
-    <Input />
+    <div class="text">挨晒都</div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, Ref, ref, reactive } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-import Footer from '@/components/Footer.vue'; // @ is an alias to /src
-import List from '@/components/List.vue'; // @ is an alias to /src
-import Input from '@/components/Input'; // @ is an alias to /src
-// interface List { 
-//     value: string,
-//     checked: boolean
-//   }
-
+import { defineComponent, Ref, ref, reactive } from "vue";
 
 export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld,Footer,List, Input
-  },
+  name: "Home",
+  components: {},
   setup() {
     let list: Ref<List[]> = ref([]);
-    function add(value: string): void { 
+    function add(value: string): void {
       list.value.push({
         value,
-        checked: false
-      })
+        checked: false,
+      });
     }
     function checkAll(checked: boolean) {
-      list.value.map(t => {
-        t.checked = checked
-        return t
-      })
+      list.value.map((t) => {
+        t.checked = checked;
+        return t;
+      });
     }
     function checkItem(newList: List[]) {
-      list.value = newList
+      list.value = newList;
     }
-    return { 
+    return {
       list,
       add,
       checkAll,
-      checkItem
-    }
-  }
+      checkItem,
+    };
+  },
 });
 </script>
+<style lang="less" scoped>
+.home {
+  .text {
+    color: red;
+  }
+}
+</style>
