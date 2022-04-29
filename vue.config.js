@@ -1,5 +1,11 @@
 const path = require('path')
 module.exports = {
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [path.resolve(__dirname, 'src/assets/styles/variable.less')]
+    }
+  },
   css: {
     loaderOptions: {
       less: {
@@ -9,16 +15,10 @@ module.exports = {
       }
     }
   },
-  pluginOptions: {
-    'style-resources-loader': {
-      preProcessor: 'less',
-      patterns: [path.resolve(__dirname, 'src/assets/styles/index.less')]
-    }
-  },
   configureWebpack: {
     resolve: {
       alias: {
-        '@': path.join(__dirname, 'src')
+        '@': path.resolve(__dirname, 'src')
       }
     },
     module:{

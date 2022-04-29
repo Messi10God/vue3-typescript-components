@@ -1,0 +1,30 @@
+// @import "@/assets/styles/index.less";
+
+.lol-btn {
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 0 15px;
+  color: @text-color;
+  text-align: center;
+  height: @height;
+  line-height: @height;
+  font-size: @font-size-base;
+  cursor: pointer;
+  &-primary {
+    background: @primary-color;
+    color: @white-color;
+  }
+  &-large {
+    height: @height-lg;
+    line-height: @height-lg;
+  }
+  &-small {
+    height: @height-sm;
+    line-height: @height-sm;
+  }
+  &-disabled {
+    cursor: default;
+    background: @disable-color;
+  }
+}

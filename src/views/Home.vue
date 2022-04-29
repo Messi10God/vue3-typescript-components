@@ -1,15 +1,16 @@
 <template>
   <div class="home">
-    <div class="text">挨晒都</div>
+    <Button type="primary" size="large" disabled>搜索</Button>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, Ref, ref, reactive } from "vue";
+import Button from "@/components/Button/index.vue";
 
 export default defineComponent({
   name: "Home",
-  components: {},
+  components: { Button },
   setup() {
     let list: Ref<List[]> = ref([]);
     function add(value: string): void {
